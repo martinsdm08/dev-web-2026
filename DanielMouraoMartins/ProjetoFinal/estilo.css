@@ -1,0 +1,179 @@
+/* ══════════════════════════════════════════════════════════════════
+   PORTFÓLIO PESSOAL — estilo.css  (tema azul e preto)
+   Só o que o Bootstrap não consegue fazer sozinho.
+   Dica: coloque data-bs-theme="dark" na tag <html> do index.html.
+   ══════════════════════════════════════════════════════════════════ */
+
+/* ─── VARIÁVEIS DE COR ──────────────────────────────────────────── */
+:root {
+  --cor-primaria:   #2f81f7;   /* azul principal */
+  --cor-secundaria: #38bdf8;   /* azul claro / ciano */
+  --cor-erro:       #ff6b6b;
+
+  --fundo:           #03060c;  /* preto */
+  --superficie:      #08111f;  /* preto azulado */
+  --superficie-alta: #0e1b31;  /* azul bem escuro */
+  --borda:           #1c3050;
+
+  --texto:       #e6eefc;
+  --texto-suave: #8fa6c9;
+
+  /* Faz o Bootstrap usar o nosso azul em text-primary, bg-primary, progress-bar etc. */
+  --bs-primary:     #2f81f7;
+  --bs-primary-rgb: 47, 129, 247;
+  --bs-link-color:  #2f81f7;
+}
+
+/* ─── BASE ──────────────────────────────────────────────────────── */
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--fundo);
+  color: var(--texto);
+}
+
+a { text-decoration: none; color: inherit; }
+
+/* Textos secundários do Bootstrap ficam cinza demais no fundo escuro */
+.text-secondary { color: var(--texto-suave) !important; }
+.text-primary   { color: var(--cor-primaria) !important; }
+
+/* ─── BOTÕES ────────────────────────────────────────────────────── */
+.btn-primary {
+  --bs-btn-bg: var(--cor-primaria);
+  --bs-btn-border-color: var(--cor-primaria);
+  --bs-btn-hover-bg: #1f6feb;
+  --bs-btn-hover-border-color: #1f6feb;
+  --bs-btn-active-bg: #1a5fcc;
+  --bs-btn-active-border-color: #1a5fcc;
+  --bs-btn-color: #fff;
+  --bs-btn-hover-color: #fff;
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--cor-primaria);
+  --bs-btn-border-color: var(--cor-primaria);
+  --bs-btn-hover-bg: var(--cor-primaria);
+  --bs-btn-hover-border-color: var(--cor-primaria);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-active-bg: #1f6feb;
+  --bs-btn-active-border-color: #1f6feb;
+}
+
+.btn-outline-secondary {
+  --bs-btn-color: var(--texto-suave);
+  --bs-btn-border-color: var(--borda);
+  --bs-btn-hover-bg: var(--superficie-alta);
+  --bs-btn-hover-border-color: var(--cor-primaria);
+  --bs-btn-hover-color: var(--cor-secundaria);
+}
+
+/* ─── CLASSES DE FUNDO ──────────────────────────────────────────── */
+.bg-fundo      { background-color: var(--fundo) !important; }
+.bg-superficie { background-color: var(--superficie) !important; }
+
+/* ─── CARDS REUTILIZÁVEIS ───────────────────────────────────────── */
+.card-dark {
+  background-color: var(--superficie-alta);
+  border: 1px solid var(--borda) !important;
+}
+
+.card-stat {
+  background-color: var(--fundo);
+  border-color: var(--borda) !important;
+}
+
+.card-skill {
+  background-color: var(--superficie-alta);
+}
+
+.card-footer-dark {
+  background-color: transparent;
+  border-color: var(--borda);
+}
+
+/* ─── NAVBAR ────────────────────────────────────────────────────── */
+.navbar-portfolio {
+  background-color: rgba(3, 6, 12, 0.95) !important;
+  border-bottom: 1px solid var(--borda);
+}
+
+/* ─── HERO ──────────────────────────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 80px;
+}
+
+.foto-perfil {
+  width: 260px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid var(--cor-primaria);
+  box-shadow: 0 0 0 8px rgba(47, 129, 247, 0.15);
+}
+
+.hero-nome {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+@media (min-width: 992px) {
+  .foto-perfil { width: 340px; height: 340px; }
+  .hero        { padding-top: 88px; }
+}
+
+@media (max-width: 575px) {
+  .hero-nome { font-size: 2.5rem; }
+}
+
+/* ─── TÍTULO DE SEÇÃO (linha colorida embaixo) ──────────────────── */
+.titulo-secao {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 12px;
+  margin-bottom: 2rem;
+}
+
+.titulo-secao::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 48px; height: 4px;
+  background-color: var(--cor-primaria);
+  border-radius: 99px;
+}
+
+/* ─── TOPO DO CARD DE PROJETO ───────────────────────────────────── */
+.card-topo {
+  height: 160px;
+  background: linear-gradient(135deg, #0b3a8c, var(--cor-primaria));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* ─── FORMULÁRIO (campos escuros) ───────────────────────────────── */
+.form-control {
+  background-color: var(--superficie-alta);
+  border: 1px solid var(--borda);
+  color: var(--texto);
+}
+
+.form-control::placeholder { color: var(--texto-suave); opacity: 0.7; }
+
+.form-control:focus {
+  background-color: var(--superficie-alta);
+  color: var(--texto);
+  border-color: var(--cor-primaria);
+  box-shadow: 0 0 0 0.2rem rgba(47, 129, 247, 0.25);
+}
+
+/* ─── CAMPO INVÁLIDO ────────────────────────────────────────────── */
+.campo-invalido { border-color: var(--cor-erro) !important; }
+.campo-invalido:focus { box-shadow: 0 0 0 0.2rem rgba(255, 107, 107, 0.25); }

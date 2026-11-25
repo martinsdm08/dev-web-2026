@@ -2,6 +2,7 @@ const input = document.querySelector("#input-tarefa")
 const button = document.querySelector("#btn-adicionar")
 const taskList = document.querySelector("#lista-tarefas")
 
+<<<<<<< HEAD
 const CHAVE = "todo-aula15";
 
 let tarefasTarefa = JSON.parse(localStorage.getItem(CHAVE)) || [];
@@ -9,18 +10,26 @@ let tarefasTarefa = JSON.parse(localStorage.getItem(CHAVE)) || [];
 function salvar() {
     localStorage.setItem(CHAVE, JSON.stringify(tarefasTarefa));
 }
+=======
+let tarefas = [];
+>>>>>>> 261734fae61aef26499d49532f49c736ae09a707
 
 function adicionar() {
     const texto = input.value;
     if(!texto) return;
     
     const tarefaObj = {id : Date.now(), texto, concluida: false};
+<<<<<<< HEAD
     tarefasTarefa.push(tarefaObj);
     salvar();
     renderizar(tarefaObj);
 
     input.value = "";
     input.focus();
+=======
+    listaTarefas.push(tarefaObj);
+    renderizar(tarefaObj);
+>>>>>>> 261734fae61aef26499d49532f49c736ae09a707
 }
 
 function renderizar(tarefa) {
@@ -31,11 +40,15 @@ function renderizar(tarefa) {
     <button class="btn btn-sm btn-outline-success" data-acao="concluir">OK</button>
     <button class="btn btn-sm btn-outline-danger" data-acao="excluir">X</button>`;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 261734fae61aef26499d49532f49c736ae09a707
 li.querySelector(".texto").textContent = tarefa.texto;
 }
 
 
+<<<<<<< HEAD
 btn.addEventListener("click", adicionar);
 
 lista.addEventListener("click", (e)=> {
@@ -59,3 +72,6 @@ lista.addEventListener("click", (e)=> {
 });
 
 tarefasTarefa.forEach(renderizar);
+=======
+btn.addEventListener("click", adicionar);
+>>>>>>> 261734fae61aef26499d49532f49c736ae09a707
